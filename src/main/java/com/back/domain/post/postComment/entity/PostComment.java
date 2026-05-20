@@ -3,9 +3,13 @@ package com.back.domain.post.postComment.entity;
 import com.back.domain.post.post.entity.Post;
 import com.back.global.jpa.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
 
+@Entity
+@Getter
 @NoArgsConstructor
 public class PostComment extends BaseEntity {
     @ManyToOne
