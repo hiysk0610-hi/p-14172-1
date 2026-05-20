@@ -23,6 +23,7 @@ public class Post extends BaseEntity {
     private String content;
 
     @OneToMany(mappedBy = "post", fetch = LAZY, cascade = {PERSIST, REMOVE}, orphanRemoval = true)
+    //더티체킹 과정에서 특정한 댓글이 comments로 부터 분리 됐다. 걔를 고아라고 부른다.
     private List<PostComment> comments = new ArrayList<>();
 
     public Post(String title, String content) {
