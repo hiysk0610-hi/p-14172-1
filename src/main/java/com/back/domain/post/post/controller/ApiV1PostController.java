@@ -22,4 +22,10 @@ public class ApiV1PostController {
 
         return items;
     }
+    @GetMapping("/{id}")
+    public Post getItem(@PathVariable int id) {
+        Post post = postService.findById(id).get();
+
+        return post;
+    }
   }
