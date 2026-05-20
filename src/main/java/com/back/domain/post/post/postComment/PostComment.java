@@ -16,7 +16,6 @@ public class PostComment extends BaseEntity {
     @ManyToOne
     @JsonIgnore
     private Post post;
-
     private String content;
 
     public PostComment(Post post, String content) {
@@ -24,7 +23,7 @@ public class PostComment extends BaseEntity {
         this.content = content;
     }
 
-    public void modify(String content) {
+    public void modify(String body) {
         this.content = content;
     }
 }
