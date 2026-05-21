@@ -1,11 +1,13 @@
 package com.back.domain.post.post.entity;
 
+import com.back.domain.post.post.repository.PostRepository;
 import com.back.domain.post.postComment.entity.PostComment;
 import com.back.global.jpa.entity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.LogManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,4 +57,5 @@ public class Post extends BaseEntity {
 
         return comments.remove(postComment);
     }
-}
+
+ }
