@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 //@ResponseBody랑 Controller랑 합친것
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -49,7 +51,7 @@ public class ApiV1PostController {
                 "%d번 글이 삭제되었습니다.".formatted(id)
         );
     }
-       record PostWriteForm(
+       record PostWriteReqBody(
             @NotBlank
             @Size(min = 2, max = 100)
         String title,
@@ -61,14 +63,19 @@ public class ApiV1PostController {
 
     @PostMapping
     @Transactional
-    public RsData<PostDto> write(@Valid @RequestBody  PostWriteForm form) {
-
+    public RsData<Map<String, Object>> write(@Valid @RequestBody  PostWriteReqBody form) {
         Post post = postService.write(form.title, form.content);
 
+        long totalCount = postService.count();
+
+        Map<String, Object> data = Map.of(
+                "totalCount", totalCount,
+                "post", new PostDto(post)
+        );
         return new RsData<>(
                 "200-1",
                 "%d번 글이 생성되었습니다.".formatted(post.getId()),
-                new PostDto(post)
+                data
         );
-    }
+        }
     }
