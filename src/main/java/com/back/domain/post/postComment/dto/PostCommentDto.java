@@ -18,4 +18,4 @@ public record PostCommentDto(
                 postComment.getContent()
         );
     }
-}
+   }

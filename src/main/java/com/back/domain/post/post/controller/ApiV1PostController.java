@@ -72,4 +72,4 @@ public class ApiV1PostController {
                 new PostDto(post)
         );
     }
-  }
+    }

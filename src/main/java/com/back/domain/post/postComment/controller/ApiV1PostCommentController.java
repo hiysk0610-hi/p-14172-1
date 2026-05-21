@@ -1,5 +1,6 @@
 package com.back.domain.post.postComment.controller;
 
+import com.back.domain.post.post.dto.PostDto;
 import com.back.domain.post.post.entity.Post;
 import com.back.domain.post.post.service.PostService;
 import com.back.domain.post.postComment.dto.PostCommentDto;
@@ -59,5 +60,6 @@ public class ApiV1PostCommentController {
                 "%d번 댓글이 삭제되었습니다.".formatted(postComment.getId()),
                 new PostCommentDto(postComment)
         );
+
     }
 }
